@@ -27,6 +27,7 @@ VALUES
 ('Slim','Benny','snake','m',5,'2001-04-29',NULL);
 
 
+-- some tests:
 SELECT * FROM pet;
 SELECT * FROM pet WHERE sex = 'm';
 SELECT owner FROM pet WHERE sex = 'm';
@@ -57,6 +58,7 @@ SELECT DISTINCT name, birth FROM pet WHERE species='bird' OR species='cat';
 SELECT DISTINCT name, species FROM pet WHERE (species='bird' OR species='cat') AND sex='f';
 
 
+-- some tests:
 SELECT name FROM pet WHERE sex<'m';
 SELECT name FROM pet WHERE name>'F';
 SELECT name FROM pet WHERE name>'f';
@@ -85,24 +87,24 @@ SELECT owner FROM pet WHERE UPPER(SUBSTR(owner,1,1)) IN ('A','B','C','D','E') AN
 -- Q2-6. Repeat the previous query, but make the query sensitive to the case of letters of the alphabet the characters in the name
 -- don't understand the question...
 
+
 -- ----------------------------------------
 -- DATE MANIPULATION
 -- ----------------------------------------
 
+-- some tests:
 SELECT name FROM pet WHERE strftime('%m',birth) = strftime('%m','now');
-
 SELECT name, strftime('%m',birth) FROM pet;
-
 SELECT name, strftime('%m',birth) AS Month FROM pet; 
-
 SELECT name, strftime('%m',birth) AS Month FROM pet WHERE death IS NULL; 
+
 
 -- ----------------------------------------
 -- COUNTS AND VALUE MANIPULATION
 -- ----------------------------------------
 
+-- some tests:
 SELECT owner, name, (checkups * 20) AS income FROM pet;
-
 SELECT owner, name, birth, MIN(strftime('%Y',birth)) AS birth FROM pet GROUP BY owner;
 
 
